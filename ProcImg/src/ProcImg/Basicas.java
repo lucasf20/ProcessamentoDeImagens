@@ -300,4 +300,25 @@ public class Basicas {
         }
         return rst;
     }
+
+    public Imagem passaAlta (Imagem a){
+        int[][] gx = {{-1,-1,-1},{-1,8,-1},{-1,-1,-1}};
+        int[][] mat = new int[3][3];
+        int alt = a.getAltura();
+        int larg = a.getLargura();
+        int passa;
+        Imagem rst = new Imagem(alt,larg,Imagem.GRAY);
+        for(int y = 1; y < alt - 1; y++){
+            for(int x = 1; x < larg - 1; x++){
+                for(int l = -1; l <= 1; l++){
+                    for(int c = -1; c <= 1; c++){
+                        mat[l+1][c+1] = a.getPixel(y - l,x - c,0);
+                    }
+                }
+                passa = operador(gx,mat);
+                rst.setPixel(y,x,(int)(passa/9),0,0);
+            }
+        }
+        return rst;
+    }
 }
