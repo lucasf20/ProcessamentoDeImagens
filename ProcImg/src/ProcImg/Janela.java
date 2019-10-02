@@ -43,10 +43,12 @@ public class Janela extends JFrame implements ActionListener {
     JButton bt22 = new JButton("22 - Isotrópico");
     JButton bt23 = new JButton("23 - Laplace");
     JButton bt24 = new JButton("24 - Roberts");
+    JButton bt25 = new JButton("25 - Passa Alta");
 
     public Janela(){
         Font ft = new Font("Ubuntu", Font.BOLD,25);
-        setLayout(new GridLayout(8,3));
+        Font ft2 = new Font("Ubuntu", Font.BOLD,16);
+        setLayout(new GridLayout(5,5));
         bt1.setFont(ft);
         bt2.setFont(ft);
         bt3.setFont(ft);
@@ -57,20 +59,21 @@ public class Janela extends JFrame implements ActionListener {
         bt8.setFont(ft);
         bt9.setFont(ft);
         bt10.setFont(ft);
-        bt11.setFont(ft);
-        bt12.setFont(ft);
-        bt13.setFont(ft);
-        bt14.setFont(ft);
-        bt15.setFont(ft);
+        bt11.setFont(ft2);
+        bt12.setFont(ft2);
+        bt13.setFont(ft2);
+        bt14.setFont(ft2);
+        bt15.setFont(ft2);
         bt16.setFont(ft);
         bt17.setFont(ft);
         bt18.setFont(ft);
-        bt19.setFont(ft);
+        bt19.setFont(ft2);
         bt20.setFont(ft);
         bt21.setFont(ft);
         bt22.setFont(ft);
         bt23.setFont(ft);
         bt24.setFont(ft);
+        bt25.setFont(ft);
 
         bt1.addActionListener(this);
         bt2.addActionListener(this);
@@ -96,6 +99,7 @@ public class Janela extends JFrame implements ActionListener {
         bt22.addActionListener(this);
         bt23.addActionListener(this);
         bt24.addActionListener(this);
+        bt25.addActionListener(this);
 
         add(bt1);
         add(bt2);
@@ -121,9 +125,10 @@ public class Janela extends JFrame implements ActionListener {
         add(bt22);
         add(bt23);
         add(bt24);
+        add(bt25);
 
         setTitle("Processamento de Imagens");
-        setSize(1200,800);
+        setSize(1400,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -205,6 +210,8 @@ public class Janela extends JFrame implements ActionListener {
             bsc.laplace(mao).mostrar("Filtro de Laplace");
         if(a.getSource() == bt24)
             bsc.roberts(mao).mostrar("Filtro de Roberts");
+        if(a.getSource() == bt25)
+            bsc.passaAlta(mao).mostrar("Filtro Passa Alta");
     }
 
 }
