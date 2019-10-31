@@ -1,12 +1,18 @@
 package ProcImg;
 
 public class Main {
-    public static void main (String [] args){
+    public static void main (String [] args) {
         //new Janela();
         Imagem lena = new Imagem("lena.jpeg");
         Imagem parafuso = new Imagem("B.PNG");
-        int[][] ee = {{255,255,255,255,255},{255,255,255,255,255},{255,255,255,255,255}};
-        parafuso.mostrar();
-        MorfologiaMatematica.dilatacao(parafuso,ee,2,2).mostrar("Erosao");
+        Imagem quadrado = new Imagem("A.PNG");
+        Imagem fechamento = new Imagem("fechamento.png");
+        int[][] ee = {{255, 255, 255,255,255}, {255, 255, 255,255,255}, {255, 255, 255,255,255},{255, 255, 255,255,255},{255, 255, 255,255,255}};
+        lena.mostrar();
+        MorfologiaMatematica.erosaoCinza(lena, ee, 2, 2).mostrar("Fechamento");
+        MorfologiaMatematica.dilatacaoCinza(lena, ee, 2, 2).mostrar("Abertura");
+        MorfologiaMatematica.smoothing(lena, ee, 2, 2).mostrar("Smoothing");
+        MorfologiaMatematica.gradiente(lena, ee, 2, 2).mostrar("Gradiente");
+
     }
 }
