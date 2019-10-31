@@ -4,7 +4,9 @@ public class Main {
     public static void main (String [] args){
         //new Janela();
         Imagem lena = new Imagem("lena.jpeg");
-        lena.mostrar();
-        Dithering.aperiodicoPorDispersao(lena,128).mostrar();
+        Imagem parafuso = new Imagem("B.PNG");
+        int[][] ee = {{255,255,255,255,255},{255,255,255,255,255},{255,255,255,255,255}};
+        parafuso.mostrar();
+        MorfologiaMatematica.dilatacao(parafuso,ee,2,2).mostrar("Erosao");
     }
 }
