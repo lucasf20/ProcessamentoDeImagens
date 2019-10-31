@@ -9,71 +9,76 @@ public class Janela extends JFrame implements ActionListener {
     Imagem imgA = new Imagem("A.PNG");
     Imagem imgB = new Imagem("B.PNG");
     Imagem mao = new Imagem("mao.png");
+    Imagem lena = new Imagem("lena.jpeg");
 
     Ops operacoes = new Ops();
     Logic logica = new Logic();
     Stretching st = new Stretching();
     Basicas bsc = new Basicas();
 
-    JButton bt1 = new JButton("1 - Soma");
-    JButton bt2 = new JButton("2 - Subtração");
-    JButton bt3 = new JButton("3 - Multiplicação");
-    JButton bt4 = new JButton("4 - Divisão");
+    JButton bt1 = new JButton("1 - Limiar Simples");
+    JButton bt2 = new JButton("2 - Modulação Aleatória");
+    JButton bt3 = new JButton("3 - Periódico Por Dispersão");
+    JButton bt4 = new JButton("4 - Periódico Por Alglomeração");
+    JButton bt5 = new JButton("5 - Aperiódico por Dispersão");
 
-    JButton bt5 = new JButton("5 - AND");
-    JButton bt6 = new JButton("6 - OR");
-    JButton bt7 = new JButton("7 - NOT");
-    JButton bt8 = new JButton("8 - SUB");
-    JButton bt9 = new JButton("9 - XOR");
-    JButton bt10 = new JButton("10 - Média");
+    JButton bt6 = new JButton("6 - Erosão Binária");
+    JButton bt7 = new JButton("7 - Dilatação  Binária");
+    JButton bt8 = new JButton("8 - Abertura Binária");
+    JButton bt9 = new JButton("9 - Fechamento  Binário");
+    JButton bt10 = new JButton("10 - Borda Interna");
+    JButton bt11 = new JButton("11 - Borda Externa");
+    JButton bt12 = new JButton("12 - Acerto e Erro");
 
-    JButton bt11 = new JButton("11 - Stretching Linear");
-    JButton bt12 = new JButton("12 - Stretching Raiz Quadrada");
-    JButton bt13 = new JButton("13 - Stretching Quadrático");
-    JButton bt14 = new JButton("14 - Stretching Logarítmico");
-    JButton bt15 = new JButton("15 - Stretching Negativo");
+    JButton bt13 = new JButton("13 - Erosão Não Binária");
+    JButton bt14 = new JButton("14 - Dilatação Não Binária");
+    JButton bt15 = new JButton("15 - Abertura Não Binária");
+    JButton bt16 = new JButton("16 - Fechamento Não Binário");
+    JButton bt17 = new JButton("17 - Smoothing");
+    JButton bt18 = new JButton("18 - Gradiente");
 
-    JButton bt16 = new JButton("16 - Equalização");
-    JButton bt17 = new JButton("17 - Quantização");
-    JButton bt18 = new JButton("18 - Filtro da Média");
-    JButton bt19 = new JButton("19 - Filtro da Mediana");
+    JButton bt19 = new JButton("19 - Cresciemento de Região");
 
-    JButton bt20 = new JButton("20 - Sobel");
-    JButton bt21 = new JButton("21 - Prewitt");
-    JButton bt22 = new JButton("22 - Isotrópico");
-    JButton bt23 = new JButton("23 - Laplace");
-    JButton bt24 = new JButton("24 - Roberts");
-    JButton bt25 = new JButton("25 - Passa Alta");
+//    JButton bt20 = new JButton("20 - Sobel");
+//    JButton bt21 = new JButton("21 - Prewitt");
+//    JButton bt22 = new JButton("22 - Isotrópico");
+//    JButton bt23 = new JButton("23 - Laplace");
+//    JButton bt24 = new JButton("24 - Roberts");
+//    JButton bt25 = new JButton("25 - Passa Alta");
+
+    int[][] ee1 = {{255,255,255},{255,255,255},{255,255,255}};
+    int[][] ee2 = {{255, 255, 255,255,255,255},{255, 255, 255,255,255,255},{255, 255, 255,255,255,255},{255, 255, 255,255,255,255},{255, 255, 255,255,255,255},{255, 255, 255,255,255,255}};
+    int[][] ee = {{255, 255, 255,255,255}, {255, 255, 255,255,255}, {255, 255, 255,255,255},{255, 255, 255,255,255},{255, 255, 255,255,255}};
 
     public Janela(){
         Font ft = new Font("Ubuntu", Font.BOLD,25);
         Font ft2 = new Font("Ubuntu", Font.BOLD,16);
-        setLayout(new GridLayout(5,5));
+        setLayout(new GridLayout(5,4));
         bt1.setFont(ft);
         bt2.setFont(ft);
-        bt3.setFont(ft);
-        bt4.setFont(ft);
-        bt5.setFont(ft);
+        bt3.setFont(ft2);
+        bt4.setFont(ft2);
+        bt5.setFont(ft2);
         bt6.setFont(ft);
         bt7.setFont(ft);
         bt8.setFont(ft);
         bt9.setFont(ft);
         bt10.setFont(ft);
-        bt11.setFont(ft2);
-        bt12.setFont(ft2);
+        bt11.setFont(ft);
+        bt12.setFont(ft);
         bt13.setFont(ft2);
         bt14.setFont(ft2);
         bt15.setFont(ft2);
-        bt16.setFont(ft);
+        bt16.setFont(ft2);
         bt17.setFont(ft);
         bt18.setFont(ft);
         bt19.setFont(ft2);
-        bt20.setFont(ft);
-        bt21.setFont(ft);
-        bt22.setFont(ft);
-        bt23.setFont(ft);
-        bt24.setFont(ft);
-        bt25.setFont(ft);
+//        bt20.setFont(ft);
+//        bt21.setFont(ft);
+//        bt22.setFont(ft);
+//        bt23.setFont(ft);
+//        bt24.setFont(ft);
+//        bt25.setFont(ft);
 
         bt1.addActionListener(this);
         bt2.addActionListener(this);
@@ -94,12 +99,12 @@ public class Janela extends JFrame implements ActionListener {
         bt17.addActionListener(this);
         bt18.addActionListener(this);
         bt19.addActionListener(this);
-        bt20.addActionListener(this);
-        bt21.addActionListener(this);
-        bt22.addActionListener(this);
-        bt23.addActionListener(this);
-        bt24.addActionListener(this);
-        bt25.addActionListener(this);
+//        bt20.addActionListener(this);
+//        bt21.addActionListener(this);
+//        bt22.addActionListener(this);
+//        bt23.addActionListener(this);
+//        bt24.addActionListener(this);
+//        bt25.addActionListener(this);
 
         add(bt1);
         add(bt2);
@@ -120,12 +125,12 @@ public class Janela extends JFrame implements ActionListener {
         add(bt17);
         add(bt18);
         add(bt19);
-        add(bt20);
-        add(bt21);
-        add(bt22);
-        add(bt23);
-        add(bt24);
-        add(bt25);
+//        add(bt20);
+//        add(bt21);
+//        add(bt22);
+//        add(bt23);
+//        add(bt24);
+//        add(bt25);
 
         setTitle("Processamento de Imagens");
         setSize(1400,800);
@@ -137,81 +142,86 @@ public class Janela extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent a) {
-        if(a.getSource() == bt1)
-            operacoes.soma(imgA,imgB).mostrar("A + B");
+        if(a.getSource() == bt1){
+            Dithering.limiarSimples(lena,32).mostrar("Limiar Simples l = 32");
+            Dithering.limiarSimples(lena,64).mostrar("Limiar Simples l = 64");
+            Dithering.limiarSimples(lena,128).mostrar("Limiar Simples l = 128");
+            Dithering.limiarSimples(lena,172).mostrar("Limiar Simples l = 172");
+        }
         if(a.getSource() == bt2){
-            operacoes.subtracao(imgA,imgB).mostrar("A - B");
-            operacoes.subtracao(imgB,imgA).mostrar("B - A");
+            Dithering.modulacaoAleatoria(lena,32).mostrar("Modulação Aleatória l = 32");
+            Dithering.modulacaoAleatoria(lena,64).mostrar("Modulação Aleatória l = 64");
+            Dithering.modulacaoAleatoria(lena,128).mostrar("Modulação Aleatória l = 128");
+            Dithering.modulacaoAleatoria(lena,172).mostrar("Modulação Aleatória l = 172");
         }
-        if(a.getSource() == bt3)
-            operacoes.multiplicacao(imgA,imgB).mostrar("A * B");
+        if(a.getSource() == bt3){
+            Dithering.periodicoPorDispercao(lena,2).mostrar("Periódico por Dispersão n = 2");
+            Dithering.periodicoPorDispercao(lena,3).mostrar("Periódico por Dispersão n = 3");
+            Dithering.periodicoPorDispercao(lena,4).mostrar("Periódico por Dispersão n = 4");
+        }
         if(a.getSource() == bt4){
-            operacoes.divisao(imgA,imgB).mostrar("A / B");
-            operacoes.divisao(imgB,imgA).mostrar("B / A");
+            Dithering.periodicoPorAglomeracao(lena,2).mostrar("Periódico por Aglomeração n=2");
+            Dithering.periodicoPorAglomeracao(lena,3).mostrar("Periódico por Aglomeração n=3");
+            Dithering.periodicoPorAglomeracao(lena,4).mostrar("Periódico por Aglomeração n=4");
         }
-        if(a.getSource() == bt5)
-            logica.and(imgA,imgB).mostrar("A and B");
-        if(a.getSource() == bt6)
-            logica.or(imgA,imgB).mostrar("A or B");
+        if(a.getSource() == bt5){
+            Dithering.aperiodicoPorDispersao(lena,2).mostrar("Aperiódico por Dispersão Q  = 2");
+            Dithering.aperiodicoPorDispersao(lena,8).mostrar("Aperiódico por Dispersão Q  = 4");
+            Dithering.aperiodicoPorDispersao(lena,32).mostrar("Aperiódico por Dispersão Q  = 32");
+            Dithering.aperiodicoPorDispersao(lena,64).mostrar("Aperiódico por Dispersão Q  = 64");
+            Dithering.aperiodicoPorDispersao(lena,128).mostrar("Aperiódico por Dispersão Q  = 128");
+        }
+        if(a.getSource() == bt6){
+            MorfologiaMatematica.erosao(imgB,ee1,1,1).mostrar("Erosão");
+        }
         if(a.getSource() == bt7){
-            logica.nao(imgA).mostrar("Not A");
-            logica.nao(imgB).mostrar("Not B");
+            MorfologiaMatematica.dilatacao(imgB,ee,2,2).mostrar("Dilatação");
         }
         if(a.getSource() == bt8){
-            logica.sub(imgA,imgB).mostrar("A sub B");
-            logica.sub(imgB,imgA).mostrar("B sub A");
+            MorfologiaMatematica.abertura(imgB,ee,2,2).mostrar("Abertura");
         }
         if(a.getSource() == bt9)
-            logica.xor(imgA,imgB).mostrar("A xor B");
+            MorfologiaMatematica.fechamento(imgB,ee2,3,3).mostrar("Fechamento");
         if(a.getSource()== bt10)
-            operacoes.media(imgA,imgB).mostrar("Média A e B");
+            MorfologiaMatematica.bordaInterna(imgB,ee,2,2).mostrar("Borda Interna");
         if(a.getSource() == bt11)
-            st.linear(mao,190,40).mostrar("Linear");
-        if(a.getSource() == bt12)
-            st.raizQuadrada(mao,200).mostrar("Raiz Quadrada");
+            MorfologiaMatematica.bordaExterna(imgB,ee,2,2).mostrar("Borda Externa");
+        if(a.getSource() == bt12){
+            imgA.mostrar("Original");
+            MorfologiaMatematica.acertoEerro(imgA,ee2,3,3).mostrar("Acerto e Erro");
+            }
         if(a.getSource() == bt13)
-            st.quadrado(mao,200).mostrar("Quadratico");
+            MorfologiaMatematica.erosaoCinza(lena,ee,2,2).mostrar("Erosão");
         if(a.getSource() == bt14)
-            st.logaritmico(mao,95).mostrar("Logarítmico");
+            MorfologiaMatematica.dilatacaoCinza(lena,ee,2,2).mostrar("Dilatação");
         if(a.getSource() == bt15)
-            st.negativo(mao,180,80).mostrar("Negativo");
+            MorfologiaMatematica.aberturaCinza(lena,ee,2,2).mostrar("Abertura");
         if(a.getSource() == bt16)
-            bsc.equalizacao(mao).mostrar("Equalização");
+            MorfologiaMatematica.fechamentoCinza(lena,ee,2,2).mostrar("Fechamento");
         if(a.getSource() == bt17){
-            bsc.quantizacao(mao,2).mostrar("Quantização 2 cores");
-            bsc.quantizacao(mao,4).mostrar("Quantização 4 cores");
-            bsc.quantizacao(mao,8).mostrar("Quantização 8 cores");
-            bsc.quantizacao(mao,16).mostrar("Quantização 16 cores");
-            bsc.quantizacao(mao,32).mostrar("Quantização 32 cores");
-            bsc.quantizacao(mao,64).mostrar("Quantização 64 cores");
-            bsc.quantizacao(mao,128).mostrar("Quantização 128 cores");
+            MorfologiaMatematica.smoothing(lena,ee,2,2).mostrar("Smoothing");
         }
         if(a.getSource() == bt18){
-            bsc.filtroDaMedia(mao,1).mostrar("Filtro da Média Raio = 1");
-            bsc.filtroDaMedia(mao,2).mostrar("Filtro da Média Raio = 2");
-            bsc.filtroDaMedia(mao,3).mostrar("Filtro da Média Raio = 3");
-            bsc.filtroDaMedia(mao,4).mostrar("Filtro da Média Raio = 4");
-            bsc.filtroDaMedia(mao,5).mostrar("Filtro da Média Raio = 5");
+            MorfologiaMatematica.gradiente(lena,ee,2,2).mostrar("Gradiente");
         }
         if(a.getSource() == bt19){
-            bsc.filtroDaMediana(mao,1).mostrar("Filtro da Mediana Raio = 1");
-            bsc.filtroDaMediana(mao,2).mostrar("Filtro da Mediana Raio = 2");
-            bsc.filtroDaMediana(mao,3).mostrar("Filtro da Mediana Raio = 3");
-            bsc.filtroDaMediana(mao,4).mostrar("Filtro da Mediana Raio = 4");
-            bsc.filtroDaMediana(mao,5).mostrar("Filtro da Mediana Raio = 5");
+            Segmentacao.crescimentoDeRegiao(lena,20).mostrar("Crescimento de Região limiar = 20");
+            Segmentacao.crescimentoDeRegiao(lena,40).mostrar("Crescimento de Região limiar = 40");
+            Segmentacao.crescimentoDeRegiao(lena,100).mostrar("Crescimento de Região limiar = 100");
+            Segmentacao.crescimentoDeRegiao(lena,200).mostrar("Crescimento de Região limiar = 200");
         }
-        if(a.getSource() == bt20)
-            bsc.sobel(mao).mostrar("Filtro de Sobel");
-        if(a.getSource() == bt21)
-            bsc.prewitt(mao).mostrar("Filtro de Prewitt");
-        if(a.getSource() == bt22)
-            bsc.isotropico(mao).mostrar("Filtro Isotrópico");
-        if(a.getSource() == bt23)
-            bsc.laplace(mao).mostrar("Filtro de Laplace");
-        if(a.getSource() == bt24)
-            bsc.roberts(mao).mostrar("Filtro de Roberts");
-        if(a.getSource() == bt25)
-            bsc.passaAlta(mao).mostrar("Filtro Passa Alta");
+//        if(a.getSource() == bt20)
+//            bsc.sobel(mao).mostrar("Filtro de Sobel");
+//        if(a.getSource() == bt21)
+//            bsc.prewitt(mao).mostrar("Filtro de Prewitt");
+//        if(a.getSource() == bt22)
+//            bsc.isotropico(mao).mostrar("Filtro Isotrópico");
+//        if(a.getSource() == bt23)
+//            bsc.laplace(mao).mostrar("Filtro de Laplace");
+//        if(a.getSource() == bt24)
+//            bsc.roberts(mao).mostrar("Filtro de Roberts");
+//        if(a.getSource() == bt25)
+//            bsc.passaAlta(mao).mostrar("Filtro Passa Alta");
     }
 
 }
